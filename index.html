@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mahabir Enterprise - Dashboard</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%;
       height: 100%;
-      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
     }
     .container {
       display: flex;
@@ -23,16 +19,16 @@
     }
     header {
       background-color: #2a2a2a;
-      color: #ffffff;
+      color: white;
       padding: 1rem;
       text-align: center;
       font-size: 1.5rem;
     }
-    .dashboard {
+    .iframe-wrapper {
       flex: 1;
       position: relative;
     }
-    iframe {
+    .iframe-wrapper iframe {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -43,10 +39,10 @@
 <body>
   <div class="container">
     <header>Mahabir Enterprise - Business Dashboard</header>
-    <div class="dashboard">
+    <div class="iframe-wrapper">
       <iframe 
-        title="Mahabir_Enterpice_DA_Analysis"
-        src="https://app.powerbi.com/reportEmbed?reportId=3230392f-898d-4d29-9efb-7631efb8ab76&autoAuth=true&embeddedDemo=true" 
+        title="Mahabir_Enterpice_DA_Analysis" 
+        src="https://app.powerbi.com/reportEmbed?reportId=3230392f-898d-4d29-9efb-7631efb8ab76&autoAuth=true&ctid=8a201941-71b4-482c-aed2-b9a2abf8bf9f" 
         allowFullScreen="true">
       </iframe>
     </div>
