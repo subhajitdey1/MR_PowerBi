@@ -12,11 +12,13 @@
       background-color: #f4f4f4;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
     .container {
       display: flex;
       flex-direction: column;
       height: 100vh;
     }
+
     header {
       background: linear-gradient(135deg, #eeff00, #d4d700);
       color: #000;
@@ -30,6 +32,7 @@
       clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
       animation: slideDown 1.5s ease-out;
     }
+
     @keyframes slideDown {
       0% {
         transform: translateY(-100%);
@@ -40,6 +43,7 @@
         opacity: 1;
       }
     }
+
     header h1 {
       font-size: 1.3rem;
       margin: 0;
@@ -48,13 +52,18 @@
       letter-spacing: 0.5px;
       text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
     }
+
     .header-buttons {
       position: absolute;
       right: 1.5rem;
       top: 50%;
       transform: translateY(-50%);
+      display: flex;
+      gap: 0.5rem;
     }
-    .header-buttons button {
+
+    .header-buttons button,
+    .header-buttons a {
       background-color: #000;
       border: none;
       color: white;
@@ -62,26 +71,43 @@
       border-radius: 20px;
       cursor: pointer;
       font-size: 0.85rem;
+      text-decoration: none;
       transition: background-color 0.3s ease, transform 0.2s ease;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .header-buttons button:hover {
+
+    .header-buttons button:hover,
+    .header-buttons a:hover {
       background-color: #333;
       transform: scale(1.05);
     }
+
     .iframe-wrapper {
       flex: 1;
       position: relative;
     }
+
     .iframe-wrapper iframe {
       position: absolute;
       width: 100%;
       height: 100%;
       border: none;
     }
+
+    .print-note {
+      display: none;
+    }
+
     @media print {
       header, .header-buttons {
         display: none;
+      }
+
+      .print-note {
+        display: block;
+        margin: 20px;
+        color: red;
+        font-size: 12px;
       }
     }
   </style>
@@ -91,15 +117,21 @@
     <header>
       <h1>Mahabir Enterprise - Business Dashboard</h1>
       <div class="header-buttons">
-        <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+        <button onclick="window.print()">🖨️ Print (Browser)</button>
+        <a href="https://app.powerbi.com/reportEmbed?reportId=3230392f-898d-4d29-9efb-7631efb8ab76&autoAuth=true&ctid=8a201941-71b4-482c-aed2-b9a2abf8bf9f" target="_blank">📄 Export to PDF (via Power BI)</a>
       </div>
     </header>
+
     <div class="iframe-wrapper">
       <iframe 
         title="Mahabir_Enterpice_DA_Analysis" 
         src="https://app.powerbi.com/reportEmbed?reportId=3230392f-898d-4d29-9efb-7631efb8ab76&autoAuth=true&ctid=8a201941-71b4-482c-aed2-b9a2abf8bf9f" 
         allowFullScreen="true">
       </iframe>
+    </div>
+
+    <div class="print-note">
+      ⚠️ Note: This browser print may not paginate long reports correctly. For best results, use the "Export to PDF" option above.
     </div>
   </div>
 </body>
